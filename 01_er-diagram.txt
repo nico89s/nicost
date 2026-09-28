@@ -1,0 +1,128 @@
+erDiagram
+    USERS ||--o{ ACCOUNTS : owns
+    USERS ||--o{ CATEGORIES : creates
+    USERS ||--o{ TRANSACTIONS : logs
+    USERS ||--o{ CONTACTS : has
+    USERS ||--o{ SPLIT_BILLS : manages
+    USERS ||--o{ RECURRING_RULES : schedules
+    USERS ||--o{ BUDGETS : sets
+    USERS ||--o{ WISHLIST_GOALS : targets
+    USERS ||--o{ WA_DIGEST_QUEUE : queues
+
+    ACCOUNTS ||--o{ TRANSACTIONS : "source_for"
+    ACCOUNTS ||--o{ TRANSACTIONS : "destination_for_transfer"
+    ACCOUNTS ||--o{ RECURRING_RULES : "deducts_from"
+
+    CATEGORIES ||--o{ CATEGORIES : "parent_sub_hierarchy"
+    CATEGORIES ||--o{ TRANSACTIONS : categorizes
+    CATEGORIES ||--o{ RECURRING_RULES : categorizes
+    CATEGORIES ||--o{ BUDGETS : caps
+
+    CONTACTS ||--o{ SPLIT_BILLS : owes
+
+    TRANSACTIONS ||--o| SPLIT_BILLS : "triggers_receivable"
+
+    USERS {
+        uuid id PK
+        string email
+        string wa_phone
+        string humor_style
+        boolean strict_mode
+        string wa_mode
+        string subscription_tier
+        int ai_quota_used
+    }
+
+    ACCOUNTS {
+        uuid id PK
+        uuid user_id FK
+        string name
+        string type
+        decimal balance
+        decimal credit_limit
+        int billing_due_day
+        boolean is_active
+    }
+
+    CATEGORIES {
+        uuid id PK
+        uuid user_id FK
+        uuid parent_id FK
+        string name
+        string type
+        boolean is_system
+    }
+
+    TRANSACTIONS {
+        uuid id PK
+        uuid user_id FK
+        uuid account_id FK
+        uuid to_account_id FK
+        uuid category_id FK
+        decimal amount
+        string type
+        string merchant_name
+        boolean is_reconciliation_adjustment
+        string source
+        timestamp transaction_date
+    }
+
+    CONTACTS {
+        uuid id PK
+        uuid user_id FK
+        string name
+        string wa_phone
+        decimal total_piutang_cached
+    }
+
+    SPLIT_BILLS {
+        uuid id PK
+        uuid user_id FK
+        uuid contact_id FK
+        uuid source_transaction_id FK
+        decimal amount_total
+        decimal amount_remaining
+        string status
+        date due_date
+        timestamp last_nagged_at
+    }
+
+    RECURRING_RULES {
+        uuid id PK
+        uuid user_id FK
+        uuid account_id FK
+        uuid category_id FK
+        string name
+        decimal amount
+        string frequency
+        int execution_day
+        boolean is_active
+        date next_due_date
+    }
+
+    BUDGETS {
+        uuid id PK
+        uuid user_id FK
+        uuid category_id FK
+        int period_month
+        int period_year
+        decimal amount_limit
+    }
+
+    WISHLIST_GOALS {
+        uuid id PK
+        uuid user_id FK
+        string title
+        decimal target_amount
+        decimal current_amount
+        date target_date
+        string status
+    }
+
+    WA_DIGEST_QUEUE {
+        uuid id PK
+        uuid user_id FK
+        text raw_text_payload
+        string status
+        timestamp scheduled_for
+    }
