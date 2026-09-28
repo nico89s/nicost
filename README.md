@@ -1,151 +1,165 @@
-# Universal AI Agent Architecture & Blueprint
-> **A disciplined, multi-agent pair-programming framework and documentation hierarchy — illustrated through Stir, an Indonesian-native AI personal finance ecosystem.**
+# nicost: Universal AI Agent Architecture & Engineering Blueprint
+
+> **A disciplined, multi-agent pair-programming framework, progressive documentation lifecycle, and clean-slate boilerplate for building software with Google Antigravity, GitHub Copilot, Claude Code, and Cursor.**
 
 ---
 
-## 🎯 Purpose of This Blueprint
+<!-- START AGENT DIRECTIVE -->
+## 🤖 For AI Agents: Autonomous Bootstrap Protocol
 
-As AI coding assistants (Google Antigravity, GitHub Copilot, Claude Code, Cursor) become daily pair programmers, projects rapidly degrade into unmaintainable "vibe-coded" drift without strict architectural guardrails. Common failure modes include:
+> **Trigger Phrase**: When the user starts a session with:
+> *"Lets start new project, please apply, comply and modifiy necesary document to follow this guideline https://github.com/nico89s/nicost"* (or similar phrasing referencing this repo or framework)
 
-- **Code-to-Docs Drift**: Code changes while documentation, requirements, and user stories lag behind.
-- **Hallucinated Product Decisions**: Agents silently invent business logic or data structures when requirements are ambiguous.
-- **Orphaned Features**: Screens or endpoints are built that pass unit tests but have no discoverable user navigation path.
-- **Bloated Diffs & Tech Debt**: Agents casually refactor untouched lines, install unapproved packages, or patch bugs with timing hacks.
+You must strictly execute this progressive onboarding workflow:
 
-**This repository establishes a gold-standard framework that keeps AI agents predictable, disciplined, and strictly aligned with documented truth.**
+### 1. Target Directory & Isolation
+- Identify the target project workspace where the user is currently working.
+- **Copy Source**: Copy the contents of [`boilerplate/`](boilerplate/) directly into the project root:
+  - `AGENTS.md` (Operating Constitution)
+  - `DEVELOPER.md` (Developer Preferences)
+  - `docs/` (Scaffolded hierarchy)
+  - `.agents/skills/` (Frontend, debugging, and testing skills)
+  - `.github/agents/` (Flow auditor)
+- **Strict Boundary**: **NEVER copy application code or domain logic from [`examples/`](examples/).** The `examples/stir/` directory is an illustrative benchmark showing how filled documentation looks—it is not part of the project boilerplate.
 
----
-
-## 🏗️ The Two-Tier Architecture
-
-To eliminate inconsistency across tools and repositories, the framework decouples universal developer working styles from project-specific rules:
+### 2. Follow the Progressive Documentation Maturity Model
+Do **NOT** attempt to write application code, define database schemas, or invent architecture immediately. Instead, advance through these sequential phases:
 
 ```mermaid
-graph TD
-    subgraph Tier1 ["Tier 1: Global Personal Layer (Universal)"]
-        G_Pref["DEVELOPER.md<br/>• Conventional Commits + Recap<br/>• Karpathy Surgical Changes<br/>• Zero Unapproved Packages<br/>• Evidence-First Debugging<br/>• Educational & Conceptual Tone"]
-        G_Anti["Antigravity Global Rules<br/>(~/.gemini/config/rules/)"]
-        G_Copilot["VS Code / Copilot Settings<br/>(User Instructions)"]
-        G_Pref -.-> G_Anti
-        G_Pref -.-> G_Copilot
-    end
-
-    subgraph Tier2 ["Tier 2: Repository Layer (The Project Constitution)"]
-        P_Agents["AGENTS.md<br/>• Standing working contract for all AI tools<br/>• Definition of Done & Sync Policy"]
-        P_Docs["/docs Hierarchy<br/>• PRD.md: Product vision & requirements<br/>• DESIGN_GUIDELINES.md: UI tokens & modal contracts<br/>• ARCHITECTURE.md: Stack, workflow & data model<br/>• CHANGELOG.md: Product-level changes<br/>• user-stories/: Gherkin ACs & test matrices<br/>• flows/: Reachability & Mermaid journeys<br/>• rules/: Domain invariants & calculation rules"]
-        P_Skills[".agents/skills/<br/>• frontend: Component primitives & layout<br/>• debugging: 5-step root-cause diagnostics<br/>• testing: AC verification & evidence reports<br/>• accounting-integrity: Domain precision checks"]
-        P_Auditor[".github/agents/flow-auditor.md<br/>• Independent Reachability & Journey Auditor"]
-
-        P_Agents --> P_Docs
-        P_Agents --> P_Skills
-        P_Agents --> P_Auditor
-    end
-
-    Tier1 ==> Tier2
-    Tier2 ==> Codebase["Application Code & Verified Execution"]
+flowchart LR
+    P0["Phase 0: Bootstrap<br/>Copy boilerplate/"] --> P1["Phase 1: Product Scope<br/>PRD ➔ Stories & Rules"]
+    P1 --> P2["Phase 2: UX & Flows<br/>Mermaid journeys & Design Tokens"]
+    P2 --> P3["Phase 3: Tech Architecture<br/>Stack, DB schema & Contracts"]
+    P3 --> P4["Phase 4: Implementation<br/>Code + Synchronous Doc Sync"]
 ```
 
----
+- **Phase 1: Product Scope & Invariants**
+  1. Ingest the user's initial PRD or project notes.
+  2. Populate `docs/PRD.md` (problem statement, target personas, MVP boundaries, non-goals).
+  3. Decompose requirements into granular user stories in `docs/user-stories/` using the **Given-When-Then** template and concrete test matrices (refer to [`examples/stir/docs/user-stories/`](examples/stir/docs/user-stories/) for expected quality).
+  4. Extract domain invariants and calculation formulas into `docs/rules/BUSINESS_RULES.md`.
+  5. **Pause & Ask**: Present the Phase 1 breakdown to the user for feedback and alignment.
 
-## 📱 Living Case Study: Stir (Personal Finance Manager)
+- **Phase 2: UX, Reachability & Design System**
+  1. Solicit or align on design references (e.g. copying an existing design kit or building custom tokens).
+  2. Map out screen inventories and user journeys in `docs/flows/` with Mermaid reachability diagrams (`Discovery → Entry → Action → Exit`).
+  3. Define typography scale, spacing tokens, and component primitives in `docs/DESIGN_GUIDELINES.md`.
 
-This repository serves as a real-world implementation of the blueprint for **Stir**, an early-stage Indonesian personal finance manager built to eliminate tracking friction across fragmented payment methods.
+- **Phase 3: Technical Architecture & Schemas**
+  1. Align on the tech stack, runtime environment, and third-party services.
+  2. Document system boundaries, directory layout, database ERDs, and API contracts in `docs/ARCHITECTURE.md`.
 
-### Key Architectural & Domain Highlights
+- **Phase 4: Implementation & Synchronous Sync**
+  1. Implement features story by story under the rules of `AGENTS.md`.
+  2. Maintain strict **Definition of Done**: any change in product behavior must update the affected User Story, Flow, and `docs/CHANGELOG.md` simultaneously.
 
-1. **The Triad Frontend Strategy**:
-   - **Asynchronous WhatsApp Bot**: "Chat-to-yourself" daily expense logging using Indonesian slang, voice notes, and receipts; processed via evening batch summaries to slash LLM token costs.
-   - **16-Screen Native Android App**: Interactive React Native (Expo) hub for budget management, goal tracking, and split bills.
-   - **Desktop Web Dashboard**: Analytical reporting and bulk bank e-Statement PDF parsing.
-2. **"Bayarin Dulu" (Split-Bill Social Ledger)**:
-   - When covering a group bill (e.g. paying Rp 500.000 for dinner with Rp 350.000 covered for friends), the covered portion is isolated into `Virtual_Pocket: Piutang`.
-   - Reimbursements from friends replenish the wallet and clear receivables without skewing monthly income statements.
-3. **"Uang Gaib" Guilt-Free Balance Reconciliation**:
-   - Small cash discrepancies (parking, street food) are reconciled in 1-click via dedicated adjustment records (`event_kind = 'reconciliation'`), preserving historical transaction integrity.
-4. **Automated Recurring Expense Ingestion**:
-   - Background cron execution at 00:01 AM WIB for silent bank administration fees (*biaya admin bulanan BCA/Mandiri*).
-
----
-
-## 🧭 Repository Navigation & Sources of Truth
-
-Every document in this repository has an unambiguous responsibility:
-
-| File / Directory | Scope & Purpose |
-|---|---|
-| [`AGENTS.md`](AGENTS.md) | **Repository Constitution**: Mandatory operating rules and synchronization policies for all AI tools. |
-| [`DEVELOPER.md`](DEVELOPER.md) | **Developer Persona & Working Style**: Universal preferences (Git commits, surgical edits, safety boundaries). |
-| [`docs/PRD.md`](docs/PRD.md) | **Product Requirements**: Vision, target audience, functional specifications, and non-goals. |
-| [`docs/DESIGN_GUIDELINES.md`](docs/DESIGN_GUIDELINES.md) | **UI/UX Design System**: Centralized kit primitives (`<Btn>`, `<Sheet>`), 11px font floor, modal baseline. |
-| [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | **System Architecture**: Expo/Vite runtimes, 3-phase development workflow, and Supabase RLS security. |
-| [`docs/CHANGELOG.md`](docs/CHANGELOG.md) | **Product Changelog**: High-level product evolution tracked with `[Unreleased]` and version dates. |
-| [`docs/user-stories/`](docs/user-stories/) | **User Stories & Acceptance Criteria**: Gherkin format (`Given-When-Then`) with concrete test matrices. |
-| [`docs/flows/`](docs/flows/) | **Flow & Navigation Contracts**: 16-screen route map, Mermaid diagrams, and reachability checklists. |
-| [`docs/rules/`](docs/rules/) | **Business Rules & Schemas**: Whole IDR currency rules, split-bill logic, and database ER models. |
-| [`.agents/skills/`](.agents/skills/) | **Procedural Skills**: Specialized execution workflows for `frontend`, `debugging`, `testing`, and `accounting-integrity`. |
-| [`.github/agents/flow-auditor.md`](.github/agents/flow-auditor.md) | **Flow Auditor Agent**: Independent persona that tests feature discovery, entry, navigation, and exit states. |
+<!-- END AGENT DIRECTIVE -->
 
 ---
 
-## 🛡️ Core AI Agent Operating Rules
+## 📁 Repository Structure
 
-Whenever an AI agent operates in this codebase, it must adhere to four core engineering standards:
-
-### 1. Think Before Coding
-When requirements are ambiguous or multiple architectural trade-offs exist, the agent **never guesses**. It pauses to present 2–3 options with a concrete recommendation before modifying code.
-
-### 2. Surgical Precision (Karpathy Principle)
-Edits touch **only** the lines required to satisfy the request. Adjacent code is never opportunistically refactored or reformatted in the diff. Discovered technical debt is flagged in chat as an optional suggestion for user review.
-
-### 3. Documentation Synchronization (Definition of Done)
-Implementation tasks are incomplete until:
-1. Code changes are verified.
-2. Affected user stories in `docs/user-stories/` have updated acceptance criteria.
-3. Relevant flowcharts in `docs/flows/` reflect new navigation paths.
-4. Meaningful changes are logged under `## [Unreleased]` in `docs/CHANGELOG.md`.
-
-### 4. Conventional Commits with Mandatory Recap
-Every commit strictly follows the Conventional Commits specification, paired with a structured body outlining what changed, the architectural rationale, and affected screens:
 ```text
-<type>(<scope>): <short imperative summary>
-
-- <bullet point recap of what changed>
-- <bullet point rationale: why this change was made>
-- <affected screens, modules, or database migrations>
+nicost/
+├── README.md                      # This master guide & agent bootstrap protocol
+│
+├── boilerplate/                   # 🟢 CLEAN-SLATE BOILERPLATE (Copy into new projects)
+│   ├── AGENTS.md                  # Universal Agent Constitution & Sync Policy
+│   ├── DEVELOPER.md               # Universal Developer Persona & Working Style
+│   ├── README.md                  # Project-level starter README
+│   ├── docs/                      # Standard Documentation Hierarchy
+│   │   ├── PRD.md                 # Product Requirements Document scaffold
+│   │   ├── DESIGN_GUIDELINES.md   # UI/UX Design System tokens & primitives
+│   │   ├── ARCHITECTURE.md        # Technical stack, data model & security
+│   │   ├── CHANGELOG.md           # Product-level change log with [Unreleased]
+│   │   ├── user-stories/          # Granular Gherkin ACs & test matrices
+│   │   │   ├── README.md
+│   │   │   └── US-001-template.md
+│   │   ├── flows/                 # Mermaid user journeys & reachability checklists
+│   │   │   └── flow-template.md
+│   │   └── rules/                 # Domain invariants & business calculations
+│   │       └── BUSINESS_RULES.md
+│   ├── .agents/skills/            # Reusable skills (frontend, debugging, testing)
+│   └── .github/agents/            # Flow Auditor agent definition
+│
+├── examples/                      # 🔵 REFERENCE BENCHMARKS (Study only, never copy logic)
+│   └── stir/                      # Stir: Production-grade Indonesian Personal Finance Manager
+│       ├── docs/                  # Real-world examples of PRD, 16-screen flows, Gherkin stories
+│       ├── src/                   # Production React Native / Expo codebase
+│       └── README.md              # Living architecture case study
+│
+└── global-preferences/            # ⚙️ UNIVERSAL DEVELOPER SETTINGS
+    └── developer-preference.md    # Global rules for Antigravity, Copilot, Cursor, etc.
 ```
 
 ---
 
-## 🚀 Quickstart & Development
+## 🛡️ Core Developer Philosophy (Non-Negotiables)
 
-### 1. Launch Local Web Showcase
-```bash
-# Vite desktop prototype showcase
-npm run dev
+These rules are enforced across all repositories via [`DEVELOPER.md`](boilerplate/DEVELOPER.md) and [`global-preferences/developer-preference.md`](global-preferences/developer-preference.md):
 
-# Or Expo web runtime:
-npx expo start --web
-```
+1. **Surgical Code Precision (Karpathy Principle)**:
+   - Edit *strictly* the lines necessary to satisfy the request.
+   - Never reformat adjacent code, reorder imports, or perform unsolicited cleanup.
+   - If technical debt or refactoring opportunities are noticed, **flag them in chat as suggestions**—do not bundle them into the code diff.
 
-### 2. Static Type Verification
-```bash
-./node_modules/.bin/tsc --noEmit
-```
+2. **Think Before Coding**:
+   - When facing architectural forks or ambiguous requirements, never guess or choose silently.
+   - Present 2–3 viable options with a concrete recommendation and rationale, then await user approval.
 
-### 3. Physical Hardware Testing (Expo Go)
-```bash
-npx expo start
-```
-Scan the terminal QR code using **Expo Go** on an Android smartphone to test gestures, haptics, and animations.
+3. **Conventional Commits with Mandatory Recap**:
+   - Commits strictly follow Conventional Commits (`feat(scope): imperative summary`).
+   - Every commit must include a structured bulleted body outlining:
+     1. Functional behavior change.
+     2. Architectural or requirement rationale.
+     3. Exact files, screens, or database migrations impacted.
+
+4. **Zero Unapproved Dependencies**:
+   - Never run `npm install`, `pip install`, or `cargo add` autonomously.
+   - Exhaust native language and web APIs first. Request explicit user permission if a new package is truly needed.
+
+5. **Evidence-First Debugging**:
+   - Isolate root causes before patching.
+   - Strictly no timing hacks (`setTimeout` race workarounds), swallowed catch blocks, or mock fallbacks in production paths.
+
+6. **Documentation Synchronization (Definition of Done)**:
+   - Code and documentation are twin artifacts. A task is incomplete until the code, user stories, flow diagrams, and changelogs are updated together.
 
 ---
 
-## 📦 Adopting This Blueprint in Your Own Projects
+## 🚀 Setting Up Your Global Environment
 
-A clean, pre-packaged boilerplate version of this framework is maintained in [`project-template/`](../project-template/).
+To enable your developer preferences globally so they apply to all your projects automatically:
 
-To bootstrap a new project with these exact standards:
+### For Google Antigravity (AGY)
 ```bash
-cp -R /path/to/project-template/. /path/to/my-new-project/
+mkdir -p ~/.gemini/config/rules
+cp global-preferences/developer-preference.md ~/.gemini/config/rules/
 ```
-Fill in the `<!-- PLACEHOLDERS -->` in `docs/PRD.md`, `AGENTS.md`, and `docs/ARCHITECTURE.md`, and your new repository is immediately equipped with full multi-agent governance.
+
+### For Visual Studio Code / GitHub Copilot
+Add to your VS Code User `settings.json`:
+```json
+"github.copilot.chat.codeGeneration.instructions": [
+  {
+    "file": "/absolute/path/to/nicost/global-preferences/developer-preference.md"
+  }
+]
+```
+
+---
+
+## ⚡ Manual Quickstart for New Projects
+
+If you prefer to scaffold a project manually via terminal before chatting with an agent:
+
+```bash
+# 1. Copy the clean boilerplate into your new project
+cp -R /path/to/nicost/boilerplate/. /path/to/my-new-project/
+
+# 2. Open the new project in your editor
+cd /path/to/my-new-project
+
+# 3. Add your draft PRD to docs/PRD.md and prompt your agent:
+# "Please review docs/PRD.md and help me complete Phase 1 by drafting initial user stories and business rules."
+```
