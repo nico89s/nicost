@@ -1,7 +1,12 @@
-# **Master Product Requirement & System Architecture Document (PRD)**
+# Master Product Requirement Document (PRD)
+
+## Changelog
+- **2026-09-28**: Reorganized document into standard `/docs/PRD.md` location, linked user stories (`docs/user-stories/`), flows (`docs/flows/`), and business rules (`docs/rules/`).
+- **2026-09-22**: Documented Rapor Financial Reporting Suite and dark analytical charts.
+- **2026-09-16**: Synchronized functional specifications with Plane.so issue tracker and User Stories US-001 through US-017.
 
 **Project Name:** Stir — Indonesian-Native AI Personal Finance Manager  
-**Target Platform:** Mobile-First (Android / Google Play) \+ WhatsApp Bot Frontend \+ Desktop Web Dashboard  
+**Target Platform:** Mobile-First (Android / Google Play) + WhatsApp Bot Frontend + Desktop Web Dashboard  
 **Target Audience:** Indonesian Working Class, Fresh Graduates, and Young Professionals
 
 ## **1\. Product Vision & Core Architecture**

@@ -1,5 +1,10 @@
 # Stir UI & Design System Guidelines
 
+## Changelog
+- **2026-09-28**: Reorganized design system into standardized `docs/DESIGN_GUIDELINES.md` location.
+- **2026-09-22**: Added specifications for Rapor financial charts, bar trend charts, pie charts, and category filter bars.
+- **2026-09-18**: Standardized 6 modal overlays, button rounding, and token typography floors.
+
 This document serves as the single source of truth for UI, styling, component mechanics, and design system patterns in Stir. Every new screen, modal, dropdown, or feedback component MUST follow the specifications defined here to guarantee visual uniformity, predictable UX, and swift implementation.
 
 ---
