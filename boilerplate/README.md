@@ -18,7 +18,13 @@ my-new-project/
 │   ├── PRD.md                       # Product Requirements Document
 │   ├── DESIGN_GUIDELINES.md         # UI/UX Design System, tokens, and components
 │   ├── ARCHITECTURE.md              # Technical Architecture, stack, data flows, security
+│   ├── SECURITY_MODEL.md            # Intended security design, threat actors, trust boundaries
 │   ├── CHANGELOG.md                 # Product-level change history
+│   ├── audit/                       # Project assurance & compliance audit suite
+│   │   ├── AUDIT_SCOPE.md           # Project audit manifest (YAML flags + scope)
+│   │   ├── AUDIT_REPORT.md          # 6-state consolidated executive audit report
+│   │   └── findings/                # Reusable AUD-<DOMAIN>-<ID> findings
+│   │       └── FINDING_TEMPLATE.md
 │   ├── user-stories/                # Granular user stories with Gherkin ACs
 │   │   ├── README.md                # Story conventions and index
 │   │   └── US-001-template.md       # User story template with test matrix
@@ -28,7 +34,16 @@ my-new-project/
 │       └── BUSINESS_RULES.md
 │
 ├── .agents/
-│   └── skills/                      # Portable procedural skills
+│   └── skills/                      # Portable procedural & assurance skills
+│       ├── auditor/SKILL.md         # Master assurance orchestrator protocol
+│       ├── audit-security/SKILL.md   # OWASP MASVS L1, auth, RLS, secrets
+│       ├── audit-privacy/SKILL.md    # Apple & Google privacy manifests
+│       ├── audit-supply-chain/SKILL.md # Lockfiles, SBOM, dependencies
+│       ├── audit-legal-ip/SKILL.md   # License scanning & AI code provenance
+│       ├── audit-platform/SKILL.md   # Store review guidelines & policies
+│       ├── audit-regional/SKILL.md   # Indonesian UU PDP, PSE, QRIS & GDPR
+│       ├── audit-adversarial/SKILL.md # Entitlement bypasses, IDOR, abuse
+│       ├── audit-release/SKILL.md    # Production artifacts & release gate
 │       ├── frontend/SKILL.md        # UI standards, component reuse, and styling
 │       ├── debugging/SKILL.md       # Diagnostic protocol and commands
 │       └── testing/SKILL.md         # AC verification and test reporting
@@ -48,6 +63,8 @@ my-new-project/
    ```
 2. **Fill in the project placeholders**:
    - `docs/PRD.md`: Define the problem, target audience, and core features.
+   - `docs/audit/AUDIT_SCOPE.md`: Configure your project audit scope manifest, target platforms, regions, and active modules during Phase 1.
+   - `docs/SECURITY_MODEL.md`: Define intended security design and threat boundaries during Phase 4.
    - `docs/ARCHITECTURE.md`: Specify your tech stack, database, and repository layout.
    - `docs/DESIGN_GUIDELINES.md`: Define your typography, color tokens, and UI components.
    - `AGENTS.md`: Update project name and verification commands (e.g. `npm test`, `tsc`).
