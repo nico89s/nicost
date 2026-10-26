@@ -18,7 +18,7 @@
 | Field | Value |
 |---|---|
 | **Story ID** | US-001 |
-| **Plane Issue Key** | [STIR-6](https://app.plane.so/kickai/projects/f7075e66-202c-41fc-aa0f-45955c3bbddf/issues/581fda4a-198b-4f43-bbc8-d2688aa0f564) |
+| **Plane Issue Key** | STIR-6 |
 | **Title** | Natural Language & Fast Transaction Quick-Log |
 | **Module** | Add Transaction (`6b2746e4-9f0b-4066-9b67-1bd86703db2e`) |
 | **Screen ID** | S08 (`app/modal/quick-log.tsx` & `components/kit/screens.tsx`) & AI Log (`app/modal/ai-log.tsx`) |

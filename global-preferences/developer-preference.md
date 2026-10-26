@@ -119,7 +119,7 @@ Add to your VS Code User `settings.json`:
 ```json
 "github.copilot.chat.codeGeneration.instructions": [
   {
-    "file": "/Users/nicom4/.gemini/config/rules/developer-preference.md"
+    "file": "~/.gemini/config/rules/developer-preference.md"
   }
 ]
 ```

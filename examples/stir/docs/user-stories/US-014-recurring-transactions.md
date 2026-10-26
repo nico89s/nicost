@@ -6,7 +6,7 @@
 | Field | Value |
 |---|---|
 | **Story ID** | US-014 |
-| **Plane Issue Key** | [STIR-28](https://app.plane.so/kickai/projects/f7075e66-202c-41fc-aa0f-45955c3bbddf/issues/3074865b-cffd-4bb8-b178-1480a5b1b8a7) |
+| **Plane Issue Key** | STIR-28 |
 | **Title** | Recurring Transactions & Subscription Hub |
 | **Module** | Core Accounting Engine & Invariants (`30e5d04b-47b8-405e-aa80-72f228353189`) |
 | **Screen ID** | S14 (`app/governance/recurring.tsx` & `lib/recurring.ts`) |

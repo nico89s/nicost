@@ -15,7 +15,7 @@
 | Field | Value |
 |---|---|
 | **Story ID** | US-004 |
-| **Plane Issue Key** | [STIR-9](https://app.plane.so/kickai/projects/f7075e66-202c-41fc-aa0f-45955c3bbddf/issues/bd291b83-3319-4020-a166-7d170001a8ad) |
+| **Plane Issue Key** | STIR-9 |
 | **Title** | Social Ledger (Piutang) & WhatsApp Debt Reminders |
 | **Module** | Social Ledger & Split Bills (`6b9521b5-2e71-4656-9c8b-6aa3ec667659`) |
 | **Screen ID** | S06 (`app/(tabs)/piutang.tsx`), `/modal/catat-piutang`, `/modal/catat-utang` |
