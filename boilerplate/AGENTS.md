@@ -21,6 +21,7 @@ Before executing or proposing non-trivial code modifications, inspect the author
 | **User Flows & Journeys** | [`docs/flows/`](docs/flows/) | Mermaid flowcharts, reachability contracts, entry/exit |
 | **Business Rules** | [`docs/rules/BUSINESS_RULES.md`](docs/rules/BUSINESS_RULES.md) | Domain invariants, calculations, validation rules |
 | **Product Changelog** | [`docs/CHANGELOG.md`](docs/CHANGELOG.md) | Product-level changes under `## [Unreleased]` |
+| **Decision Log** | [`docs/DECISION_LOG.md`](docs/DECISION_LOG.md) | Why the plan changed, with Current State summary and index |
 | **Developer Preferences** | [`DEVELOPER.md`](DEVELOPER.md) | Universal collaboration habits and style constraints |
 | **Procedural Skills** | [`.agents/skills/`](.agents/skills/) | Step-by-step guides for frontend, debugging, testing |
 | **Flow Auditor Agent** | [`.github/agents/flow-auditor.md`](.github/agents/flow-auditor.md) | Independent auditor for flow completeness & discovery |
@@ -44,6 +45,24 @@ Whenever an implementation alters documented behavior, acceptance criteria, or f
 5. Update the `## Changelog` at the top of any modified documentation file.
 
 *Note*: Internal refactorings, formatting adjustments, and trivial fixes that do not alter documented product behavior do not require changelog entries.
+
+### 2.1 Decision Logging
+
+The [Decision Log](docs/DECISION_LOG.md) runs alongside the changelog and never replaces it. Both are required when a decision changes the plan.
+
+Log a decision when the plan changes because of any of these triggers:
+- **Initial idea shift**: the chosen approach departs from the original idea.
+- **Broken flow**: a discovered flow is broken, unreachable, or dead-ends.
+- **Contradiction**: requirements, documents, or code conflict and the user resolves the conflict.
+- **Design shift**: a wireframe, schema, or rule changes after it was documented.
+
+For each decision:
+1. Append an entry under `## Entries` (newest first) with the next `D-xxx` ID. Capture why it happened, the user's reason, and the decision in the user's own words where possible.
+2. List every affected document in **Documents affected** and update each one in the same change. Mark each box checked once done.
+3. Update **Current State** and the **Index** in the same change. If the decision overrides an earlier one, mark the earlier entry `Superseded by D-xxx` and remove it from Current State.
+4. Record the decision in the CHANGELOG too, once implemented.
+
+Do not log trivial implementation choices. Ask the user for the reason if it is not already stated; never invent one.
 
 ---
 
